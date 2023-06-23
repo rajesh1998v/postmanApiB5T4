@@ -29,7 +29,7 @@ app.post("/post",async function(req,res){
           let response = await axios.get(body.url,{headers: {authorization: token}});
           let resData = JSON.stringify(response.data);
           console.log(response.data);
-          res.status(200).send(resData);
+          res.send(resData);
           
         }catch(error){
           if (error.response){
