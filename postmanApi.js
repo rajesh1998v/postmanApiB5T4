@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-let port =2420;
+var port = process.env.PORT || 2410;
 
 let axios = require("axios");
 app.listen(port, () => console.log(`Node app listening on port ${port}`));
