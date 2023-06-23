@@ -1,5 +1,5 @@
 var express = require("express");
-
+let axios = require("axios");
 var app = express();
 app.use(express.json());
 app.use(function(req, res, next) {
@@ -16,7 +16,7 @@ app.use(function(req, res, next) {
 
 var port = process.env.PORT || 2460;
 
-let axios = require("axios");
+
 app.listen(port, () => console.log(`Node app listening on port ${port}`));
 
 app.post("/post",async function(req,res){
