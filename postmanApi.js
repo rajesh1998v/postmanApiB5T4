@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-var port = process.env.PORT || 2410;
+var port = process.env.PORT || 2420;
 
 let axios = require("axios");
 app.listen(port, () => console.log(`Node app listening on port ${port}`));
@@ -28,12 +28,15 @@ app.post("/post",async function(req,res){
         try{
           let response = await axios.get(body.url,{headers: {authorization: token}});
           let resData = JSON.stringify(response.data);
+          console.log(response.data);
           res.status(200).send(resData);
           
         }catch(error){
           if (error.response){
-            let { status, statusText } = error.response;
-            res.status(status).send(error.response);
+            // console.log(error.response);
+            let { data,status, statusText } = error.response;
+            console.log(data,status,statusText);
+            res.status(status).send(data,status,statusText);
           }else res.status(404).send(error);
         }
      
@@ -47,9 +50,9 @@ app.post("/post",async function(req,res){
           res.status(200).send(resData);
     }catch (error){
         if (error.response){
-            let { status, statusText } = error.response;
-            res.status(status).send(error.response);
-            console.log(error.response);
+          let { data,status, statusText } = error.response;
+          console.log(data,status,statusText);
+          res.status(status).send(data,status,statusText);
         }else res.status(404).send(error);
     }
        
@@ -64,8 +67,9 @@ app.post("/post",async function(req,res){
         console.log(response.data);
       }catch (error){
         if (error.response){
-            let { status, statusText } = error.response;
-            res.status(status).send(error.response);
+          let { data,status, statusText } = error.response;
+          console.log(data,status,statusText);
+          res.status(status).send(data,status,statusText);
         }else res.status(404).send(error);
       } 
        
@@ -77,8 +81,9 @@ app.post("/post",async function(req,res){
         console.log(response.data);
       }catch (error){
         if (error.response){
-            let { status, statusText } = error.response;
-            res.status(status).send(error.response);
+          let { data,status, statusText } = error.response;
+          console.log(data,status,statusText);
+          res.status(status).send(data,status,statusText);
         }else res.status(404).send(error);
       } 
     }
