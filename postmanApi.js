@@ -26,10 +26,10 @@ app.post("/post",async function(req,res){
               body.headerKey3.toLowerCase()=="authorization"?body.headerValue3:"";
     if(body.req==="GET"){
         try{
-          let response = await axios.get(body.url,{headers: {authorization: token}});
+          let response = await axios.get(body.url);
           let resData = JSON.stringify(response.data);
           console.log(response.data);
-          res.send(resData);
+          res.send(response.data);
           
         }catch(error){
           if (error.response){
