@@ -7,9 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node postmanApi.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajesh1998v/postmanB5T4.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajesh1998v/postmanB5T4/issues"
+  },
+  "homepage": "https://github.com/rajesh1998v/postmanB5T4#readme",
   "dependencies": {
     "axios": "^1.4.0",
     "express": "^4.18.2"
